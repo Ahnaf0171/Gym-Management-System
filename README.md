@@ -4,7 +4,7 @@ A comprehensive backend REST API for managing multiple gym branches, trainers, m
 
 **Live API**: `https://gym-management-system-otli.onrender.com`
 
-## ✨ Features
+## Features
 
 - **Multi-Branch Management**: Handle multiple gym locations with strict branch isolation
 - **Role-Based Access Control**: 4 distinct user roles (Super Admin, Manager, Trainer, Member)
@@ -19,7 +19,7 @@ A comprehensive backend REST API for managing multiple gym branches, trainers, m
 - SQLite Database
 - Python 3.10+
 
-## 👥 Test Users
+## Test Users
 
 ### Super Admin
 
@@ -189,7 +189,7 @@ Authorization: Bearer {{access_token}}
 }
 ```
 
-## 📊 API Reference Summary
+## API Reference Summary
 
 | Endpoint                      | Method         | Access          | Description     |
 | ----------------------------- | -------------- | --------------- | --------------- |
@@ -201,7 +201,7 @@ Authorization: Bearer {{access_token}}
 | `/api/v1/workout-plans/`      | GET/POST       | Trainer/Manager | Manage plans    |
 | `/api/v1/workout-tasks/`      | GET/POST/PATCH | All roles       | Manage tasks    |
 
-## 🎭 User Roles & Permissions
+## User Roles & Permissions
 
 **Super Admin**: Create branches, add managers, view all data across branches
 
@@ -211,7 +211,7 @@ Authorization: Bearer {{access_token}}
 
 **Member**: View and update own assigned tasks only
 
-## 🔒 Key Business Rules
+## Key Business Rules
 
 - **Branch Isolation**: Users can only access their branch data (except Super Admin)
 - **Trainer Limit**: Maximum 3 trainers per gym branch
@@ -219,7 +219,7 @@ Authorization: Bearer {{access_token}}
 - **Task Ownership**: Members can only update their own tasks
 - **Role Hierarchy**: Admin → Manager → Trainer → Member
 
-## 🧪 Quick Test Flow
+## Quick Test Flow
 
 1. Login as Admin → Create Branch
 2. Login as Admin → Create Manager for Branch
@@ -228,7 +228,7 @@ Authorization: Bearer {{access_token}}
 5. Login as Trainer → Assign Task to Member
 6. Login as Member → View and Update Task
 
-## 🚀 Local Setup (Optional)
+## Local Setup
 
 ```bash
 # Clone repository
