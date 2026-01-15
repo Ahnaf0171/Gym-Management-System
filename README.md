@@ -1,8 +1,10 @@
-# Gym Management & Member Workout System API
+# Gym Management System API
 
-A comprehensive backend REST API for managing multiple gym branches, trainers, members, and workout assignments built with Django and Django REST Framework.
+A backend REST API for managing multiple gym branches, trainers, members, and workout assignments built with Django and Django REST Framework.
 
 **Live API**: `https://gym-management-system-otli.onrender.com`
+
+**API Documentation (Swagger)**: `https://gym-management-system-otli.onrender.com/api/docs/`
 
 ## Features
 
@@ -12,29 +14,22 @@ A comprehensive backend REST API for managing multiple gym branches, trainers, m
 - **Workout Management**: Create workout plans and assign tasks to members
 - **Optimized Performance**: Performance-optimized database queries
 
-## 🛠 Technology Stack
-
-- Django 4.2+ & Django REST Framework 3.14+
-- Simple JWT Authentication
-- SQLite Database
-- Python 3.10+
-
 ## Test Users
 
 ### Super Admin
 
 ```json
 {
-  "email": "admin@gmail.com",
-  "password": "12345"
+  "email": "superadmin@gmail.com",
+  "password": "Admin@1234"
 }
 ```
 
-### Manager (Branch 2)
+### Manager (Dhanmondi Branch)
 
 ```json
 {
-  "email": "manager2@gmail.com",
+  "email": "manager_rakib@gmail.com",
   "password": "Manager@1234"
 }
 ```
@@ -57,7 +52,7 @@ A comprehensive backend REST API for managing multiple gym branches, trainers, m
 }
 ```
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### Authentication
 
@@ -68,8 +63,8 @@ POST https://gym-management-system-otli.onrender.com/api/v1/auth/login/
 Content-Type: application/json
 
 {
-  "email": "admin@gmail.com",
-  "password": "12345"
+  "email": "superadmin@gmail.com",
+  "password": "Admin@1234"
 }
 ```
 
@@ -245,9 +240,21 @@ pip install -r requirements.txt
 # Run migrations
 python manage.py migrate
 
-# Create test data
-python manage.py create_test_users
+# Seed database with test users
+python manage.py seed
 
 # Start server
 python manage.py runserver
 ```
+
+### Seed Command Details
+
+The `seed` management command (`accounts/management/commands/seed.py`) creates test users and a default branch:
+
+- **Super Admin**: `superadmin@gmail.com` (password: `Admin@1234`)
+- **Manager**: `manager_rakib@gmail.com` (password: `Manager@1234`) for Dhanmondi Branch
+- **Trainers**: 3 trainers (alif, jabed, rakib) with `Trainer@1234`
+- **Member**: `member_nahin@gmail.com` with `Member@1234`
+- **Branch**: Dhanmondi Branch, Dhaka
+
+Run `python manage.py seed` to populate the database. The command is idempotent and respects the 3-trainer-per-branch limit.
