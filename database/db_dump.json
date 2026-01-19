@@ -1,0 +1,272 @@
+[
+  {
+    "model": "accounts.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$D3qiCNPHOxOXXLKDGXHU69$PWdh27XkxKiBYHQ8GRU6n4R8NMs7LqDnu267q6o6XuI=",
+      "last_login": "2026-01-14T13:07:00.753Z",
+      "is_superuser": true,
+      "email": "admin@gmail.com",
+      "role": "super_admin",
+      "gym_branch": null,
+      "is_active": true,
+      "is_staff": true,
+      "created_at": "2026-01-14T12:31:40.715Z",
+      "updated_at": "2026-01-14T12:31:40.715Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$KsXlq6K1ZkvgwcBY91rwO9$nYIQ3VSE3D9eWlOkY02lJ9D/t1B9tUnPvOb6yFSQQZ0=",
+      "last_login": null,
+      "is_superuser": true,
+      "email": "superadmin@gmail.com",
+      "role": "super_admin",
+      "gym_branch": null,
+      "is_active": true,
+      "is_staff": true,
+      "created_at": "2026-01-14T13:05:10.948Z",
+      "updated_at": "2026-01-14T15:44:56.671Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$dvPy6zkCe6c4ZIYENwPZW0$7eoLRJt3ZlM3drJ9iOqiKCX15ODwqTSfAOvVBotkwMY=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "manager_Rakib@gmail.com",
+      "role": "gym_manager",
+      "gym_branch": 1,
+      "is_active": true,
+      "is_staff": true,
+      "created_at": "2026-01-14T13:05:11.523Z",
+      "updated_at": "2026-01-14T13:05:11.523Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$46xw7LyVSoazbR3dRqREh9$4pH2GiB5wF1hTybiUSSaWvhsMvVlt2/Sk91GvRATGIY=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "trainer_Alif@gmail.com",
+      "role": "trainer",
+      "gym_branch": 1,
+      "is_active": true,
+      "is_staff": false,
+      "created_at": "2026-01-14T13:05:12.085Z",
+      "updated_at": "2026-01-14T13:05:12.085Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$V4UruFQmIv9AKRbZJFCtTd$y00dnLv12w8OlycKFKm5gIf87DsFwYZc5Ii9JthbHQQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "trainer_jabed@gmail.com",
+      "role": "trainer",
+      "gym_branch": 1,
+      "is_active": true,
+      "is_staff": false,
+      "created_at": "2026-01-14T13:05:12.639Z",
+      "updated_at": "2026-01-14T15:44:57.496Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$63fiH7roOqCE996S2EDr9L$UQql6ckRZPEB8DQl/LrpzAAQicVWb8N/RV5s/oSXnbI=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "trainer_rakib@gmail.com",
+      "role": "trainer",
+      "gym_branch": 1,
+      "is_active": true,
+      "is_staff": false,
+      "created_at": "2026-01-14T13:05:13.186Z",
+      "updated_at": "2026-01-14T15:44:57.898Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$9mGFYA0hCgCwqPJwVrYlE1$oOO2fydBQPpiTghhXO3xou6ttFcKUeqxsV69NrU9SrY=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "member_nahin@gmail.com",
+      "role": "member",
+      "gym_branch": 1,
+      "is_active": true,
+      "is_staff": false,
+      "created_at": "2026-01-14T13:05:13.744Z",
+      "updated_at": "2026-01-14T15:44:58.322Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$Oh7UWzloHW3xX1lcJ9pWmA$zDu9+/odS0LrV5NYP1PJ+mYuih2fLfGndLo9VQbVxXk=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "manager2@gmail.com",
+      "role": "gym_manager",
+      "gym_branch": 1,
+      "is_active": true,
+      "is_staff": false,
+      "created_at": "2026-01-14T15:16:42.574Z",
+      "updated_at": "2026-01-14T15:16:42.574Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$3DH2h0NcEyFWFM2PjnKj9R$I22KiHsRWoR7la6BdIpVHWmNhpQ/1xGhcCTUT6Il0Sc=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "manager_rakib@gmail.com",
+      "role": "gym_manager",
+      "gym_branch": 1,
+      "is_active": true,
+      "is_staff": true,
+      "created_at": "2026-01-14T15:44:56.684Z",
+      "updated_at": "2026-01-14T15:44:57.084Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$dTq0ZKPjxAHxS226Y1Pgy1$R44gPvGKTmwgPo2753sNF6Nblhr/uTx688Qw0mU0Rcs=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "manager_tania@gmail.com",
+      "role": "gym_manager",
+      "gym_branch": 3,
+      "is_active": true,
+      "is_staff": false,
+      "created_at": "2026-01-14T16:24:34.929Z",
+      "updated_at": "2026-01-14T16:24:34.929Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$t9R8rFEApoet5g8ksFjiwj$l1ME3lvDurpOYzZNIjSSfEmR/fyZaYYBF6jlIpgV8eU=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "member_rafia@gmail.com",
+      "role": "member",
+      "gym_branch": 3,
+      "is_active": true,
+      "is_staff": false,
+      "created_at": "2026-01-14T16:30:42.336Z",
+      "updated_at": "2026-01-14T16:30:42.336Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "accounts.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$dMJGuMD9iZFNqnfHKu4kSB$hn4v/CWi4JbZVjom69BQmViCiRPo85IivNtXahA47zk=",
+      "last_login": null,
+      "is_superuser": false,
+      "email": "trainer_sakibal_hasan@gmail.com",
+      "role": "trainer",
+      "gym_branch": 3,
+      "is_active": true,
+      "is_staff": false,
+      "created_at": "2026-01-14T16:31:52.073Z",
+      "updated_at": "2026-01-14T16:31:52.073Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "gym_branches.gymbranch",
+    "pk": 1,
+    "fields": {
+      "name": "Dhanmondi Branch",
+      "location": "Dhanmondi, Dhaka",
+      "created_at": "2026-01-14T13:05:10.944Z",
+      "updated_at": "2026-01-14T13:05:10.944Z"
+    }
+  },
+  {
+    "model": "gym_branches.gymbranch",
+    "pk": 2,
+    "fields": {
+      "name": "Gulshan Branch",
+      "location": "Gulshan, Dhaka",
+      "created_at": "2026-01-14T15:15:40.205Z",
+      "updated_at": "2026-01-14T15:15:40.206Z"
+    }
+  },
+  {
+    "model": "gym_branches.gymbranch",
+    "pk": 3,
+    "fields": {
+      "name": "Uttara north Branch",
+      "location": "Uttara Sector-14, Dhaka",
+      "created_at": "2026-01-14T16:18:48.844Z",
+      "updated_at": "2026-01-14T16:18:48.844Z"
+    }
+  },
+  {
+    "model": "workouts.workoutplan",
+    "pk": 1,
+    "fields": {
+      "title": "Strength Builder - Week 1",
+      "description": "Compound lifts + light cardio (4 sessions).",
+      "created_by": 5,
+      "gym_branch": 1,
+      "created_at": "2026-01-14T16:40:22.492Z",
+      "updated_at": "2026-01-14T16:40:22.492Z"
+    }
+  },
+  {
+    "model": "workouts.workouttask",
+    "pk": 1,
+    "fields": {
+      "workout_plan": 1,
+      "member": 7,
+      "status": "completed",
+      "due_date": "2026-02-10",
+      "created_at": "2026-01-14T16:58:28.763Z",
+      "updated_at": "2026-01-14T17:08:25.608Z"
+    }
+  }
+]

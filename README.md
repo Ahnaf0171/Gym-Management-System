@@ -14,6 +14,30 @@ A backend REST API for managing multiple gym branches, trainers, members, and wo
 - **Workout Management**: Create workout plans and assign tasks to members
 - **Optimized Performance**: Performance-optimized database queries
 
+### Database Dump (Schema, Data and Overview)
+
+- File: `database/db_dump.json`
+- Contains sample data for all core entities (GymBranch, User, WorkoutPlan, WorkoutTask).
+- Restore command:
+  ```bash
+  python manage.py loaddata database/db_dump.json
+  ```
+
+### Entities / Tables
+
+- **GymBranch**: id, name, location, created_at, updated_at
+- **User**: email (unique), role, gym_branch (nullable for super_admin), is_active, is_staff, created_at, updated_at
+- **WorkoutPlan**: title, description, created_by (Trainer), gym_branch, created_at, updated_at
+- **WorkoutTask**: workout_plan, member, status, due_date, created_at, updated_at
+
+### Relationships
+
+- GymBranch 1—N User
+- GymBranch 1—N WorkoutPlan
+- User(Trainer) 1—N WorkoutPlan (created_by)
+- WorkoutPlan 1—N WorkoutTask
+- User(Member) 1—N WorkoutTask (member)
+
 ## Test Users
 
 ### Super Admin
