@@ -23,20 +23,40 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     SUPER_ADMIN, MANAGER, TRAINER, MEMBER = "super_admin", "gym_manager", "trainer", "member"
     ROLE_CHOICES = [
-        (SUPER_ADMIN, "Super Admin"), 
+        (SUPER_ADMIN, "Super Admin"),
         (MANAGER, "Gym Manager"),
-        (TRAINER, "Trainer"), 
+        (TRAINER, "Trainer"),
         (MEMBER, "Member")
     ]
 
+    GENDER_MALE, GENDER_FEMALE = "male", "female"
+    GENDER_CHOICES = [
+        (GENDER_MALE, "Male"),
+        (GENDER_FEMALE, "Female"),
+    ]
+
+    full_name = models.CharField(max_length=200, blank=True)
+    username = models.CharField(max_length=150, unique=True, null=True, blank=True)
     email = models.EmailField(unique=True, db_index=True)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, db_index=True)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES, blank=True, null=True)
+    age = models.PositiveIntegerField(blank=True, null=True)
+    profile_picture = models.ImageField(upload_to="profile_pictures/", blank=True, null=True)
+    mobile_number = models.CharField(max_length=15, unique=True, null=True, blank=True)
     gym_branch = models.ForeignKey(
         "gym_branches.GymBranch",
-        null=True, 
+        null=True,
         blank=True,
         on_delete=models.PROTECT,
         related_name="users",
+    )
+    trainer = models.ForeignKey(
+        "self",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="members",
+        limit_choices_to={"role": "trainer"}
     )
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -52,22 +72,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def clean(self):
         super().clean()
-        
         if self.role == self.SUPER_ADMIN and self.gym_branch_id is not None:
             raise ValidationError({"gym_branch": "Super Admin cannot have a gym branch."})
-        
         if self.role != self.SUPER_ADMIN and self.gym_branch_id is None:
             raise ValidationError({"gym_branch": "Branch is required for this role."})
-        
-        if self.role == self.TRAINER and self.gym_branch_id:
-            existing_count = User.objects.filter(
-                gym_branch_id=self.gym_branch_id,
-                role=self.TRAINER,
-                is_active=True
-            ).exclude(pk=self.pk).count()
-            
-            if existing_count >= 3:
-                raise ValidationError({"role": "This branch already has 3 trainers."})
 
     def __str__(self):
         return f"{self.email} ({self.get_role_display()})"

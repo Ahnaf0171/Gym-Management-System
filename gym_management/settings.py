@@ -48,9 +48,12 @@ INSTALLED_APPS = [
     "accounts",
     "gym_branches",
     "workouts",
+    "attendance",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,6 +61,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
 
 ROOT_URLCONF = 'gym_management.urls'
@@ -154,8 +162,10 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Internal API for branches, users, workout plans and tasks.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
+     "SERVE_PERMISSIONS": ["rest_framework.permissions.AllowAny"],
 }
 
 
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

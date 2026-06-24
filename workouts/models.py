@@ -15,7 +15,7 @@ class WorkoutPlan(models.Model):
     on_delete=models.PROTECT,
     related_name="workout_plans",
     )
-
+    is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -33,10 +33,6 @@ class WorkoutPlan(models.Model):
                 raise ValidationError({"created_by": "Only trainers can create workout plans."})
             if self.gym_branch_id and self.created_by.gym_branch_id != self.gym_branch_id:
                 raise ValidationError({"gym_branch": "Plan must belong to trainer's branch."})
-
-    def save(self, *args, **kwargs):
-        self.full_clean()
-        return super().save(*args, **kwargs)
 
     def __str__(self):
         branch_name = self.gym_branch.name if self.gym_branch_id else "No Branch"
@@ -87,10 +83,6 @@ class WorkoutTask(models.Model):
                 ).get(pk=self.workout_plan_id)
                 if self.member.gym_branch_id != plan_branch_id:
                     raise ValidationError({"member": "Cannot assign tasks across branches."})
-
-    def save(self, *args, **kwargs):
-        self.full_clean()
-        return super().save(*args, **kwargs)
 
     def __str__(self):
         plan_title = self.workout_plan.title if self.workout_plan_id else "No Plan"

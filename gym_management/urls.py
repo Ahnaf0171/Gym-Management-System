@@ -17,13 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from django.conf import settings
+from django.conf.urls.static import static
 
 
+# main urls.py
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path("api/docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
-    path("api/v1/auth/", include("accounts.urls")),
-    path("api/v1/", include("gym_branches.urls")),
-    path("api/v1/", include("workouts.urls")),
+    path("api/v1/auth/", include("accounts.urls", namespace="accounts")),
+    path("api/v1/branches/", include("gym_branches.urls", namespace="gym_branches")),
+    path("api/v1/workouts/", include("workouts.urls", namespace="workouts")),
+    path("api/v1/attendance/", include("attendance.urls", namespace="attendance")),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
