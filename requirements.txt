@@ -6,3 +6,4 @@ drf-spectacular==0.28.0
 python-dotenv
 gunicorn
 Pillow==10.4.0
+django-cors-headers==4.3.1

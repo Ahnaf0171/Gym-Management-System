@@ -98,7 +98,7 @@ class PublicTrainersByBranchView(APIView):
                 ]
             }
             for branch in branches
-            if branch.trainers  # trainer নেই এমন branch hide করো
+            if branch.trainers  
         ]
 
         return Response(data)
