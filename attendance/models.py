@@ -5,10 +5,10 @@ from django.core.exceptions import ValidationError
 
 class Attendance(models.Model):
     member = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.PROTECT,
-        related_name="attendances",
-    )
+    settings.AUTH_USER_MODEL,
+    on_delete=models.CASCADE,  
+    related_name="attendances",
+)
     gym_branch = models.ForeignKey(
         "gym_branches.GymBranch",
         on_delete=models.PROTECT,
