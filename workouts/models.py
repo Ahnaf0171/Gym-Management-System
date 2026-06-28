@@ -6,10 +6,10 @@ class WorkoutPlan(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.PROTECT,
-        related_name="created_workout_plans",
-    )
+    settings.AUTH_USER_MODEL,
+    on_delete=models.CASCADE,  
+    related_name="created_workout_plans",
+        )
     gym_branch = models.ForeignKey(
     "gym_branches.GymBranch", 
     on_delete=models.PROTECT,
@@ -51,10 +51,10 @@ class WorkoutTask(models.Model):
         related_name="tasks",
     )
     member = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.PROTECT,
-        related_name="workout_tasks",
-    )
+    settings.AUTH_USER_MODEL,
+    on_delete=models.CASCADE, 
+    related_name="workout_tasks",
+)
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
