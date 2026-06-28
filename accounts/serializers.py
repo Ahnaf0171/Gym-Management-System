@@ -68,6 +68,13 @@ class UserUpdateSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         password = validated_data.pop("password", None)
+        
+        remove_picture = self.context["request"].data.get("remove_profile_picture") == "true"
+        if remove_picture:
+            if instance.profile_picture:
+                instance.profile_picture.delete(save=False)
+            instance.profile_picture = None
+
         instance = super().update(instance, validated_data)
         if password:
             instance.set_password(password)
