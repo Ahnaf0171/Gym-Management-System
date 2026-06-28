@@ -175,6 +175,30 @@ class UserViewSet(
         serializer.save()
         return Response(UserReadSerializer(instance).data, status=status.HTTP_200_OK)
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if instance.id == request.user.id:
+            return Response(
+                {"detail": "You cannot delete your own account."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if request.user.role == User.MANAGER:
+            if instance.gym_branch_id != request.user.gym_branch_id:
+                return Response(
+                    {"detail": "You can only delete users from your own branch."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
+
+        try:
+            instance.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Exception as e:
+            return Response(
+                {"detail": "Cannot delete this user. They may have related data."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
     @action(detail=False, methods=["get"], url_path="me")
     def me(self, request):
         return Response(UserReadSerializer(request.user).data, status=status.HTTP_200_OK)
