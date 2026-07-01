@@ -13,6 +13,7 @@ class AttendanceViewSet(
     mixins.ListModelMixin,
     mixins.CreateModelMixin,
     mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
     viewsets.GenericViewSet,
 ):
     serializer_class = AttendanceSerializer
@@ -22,6 +23,8 @@ class AttendanceViewSet(
             return [permissions.IsAuthenticated(), role_required(User.MEMBER)()]
         if self.action in ("update", "partial_update"):
             return [permissions.IsAuthenticated(), role_required(User.MEMBER)()]
+        if self.action == "destroy":
+            return [permissions.IsAuthenticated(), role_required(User.SUPER_ADMIN, User.MANAGER)()]
         return [permissions.IsAuthenticated(), role_required(User.SUPER_ADMIN, User.MANAGER, User.TRAINER)()]
 
     def get_queryset(self):
